@@ -76,4 +76,9 @@ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.0
 docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.2.0
 ```
 
+To Rebuild in the elastic search data use the below command
+```
+python manage.py search_index --rebuild
+```
+
 https://github.com/archatas/experiment-with-django-and-elasticsearch
