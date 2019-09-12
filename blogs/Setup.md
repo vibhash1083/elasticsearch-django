@@ -1,4 +1,4 @@
-  * Clone the project with ```git clone <github link of project>```
+  * Clone the project with ```git clone https://github.com/vibhash1083/elasticsearch-django.git```
 
   * Install ElasticSearch 7.0.0:
 ```
