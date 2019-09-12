@@ -16,7 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf.urls import url, include
+# from django.conf import settings
+# from django.conf.urls.static import static
+# from books import views as search_views
+from books import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('books/', include('books.urls')),
-]
+    url(r'books/', include('books.urls')),
+    url(r'^search/', views.search, name="search"),
+    # url(r'^', include('blogs.urls')),
+] 

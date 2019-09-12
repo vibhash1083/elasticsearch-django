@@ -1,8 +1,10 @@
 # -*- coding: UTF-8 -*-
 from __future__ import unicode_literals
 
-from django_elasticsearch_dsl import DocType, Index, fields
-from .models import Author, Post
+from django_elasticsearch_dsl import Index, fields, Document
+# from django_elasticsearch_dsl import DocType
+from django_elasticsearch_dsl.registries import registry
+from books.models import Author, Post
 
 # Name of the Elasticsearch index
 search_index = Index('blogs')
@@ -12,9 +14,10 @@ search_index.settings(
     number_of_replicas=0
 )
 
-
-@search_index.doc_type
-class PostDocument(DocType):
+# @search_index.doc_type
+@registry.register_document
+# @search_index.document
+class PostDocument(Document):
     authors = fields.NestedField(properties={
         'first_name': fields.TextField(),
         'last_name': fields.TextField(),
@@ -22,9 +25,10 @@ class PostDocument(DocType):
         'pk': fields.IntegerField(),
     }, include_in_root=True)
 
-    isbn = fields.KeywordField()
+    # isbn = fields.KeywordField()
 
-    class Meta:
+    # class Meta:
+    class Django:
         model = Post
 
         fields = [
@@ -36,4 +40,3 @@ class PostDocument(DocType):
     def get_instances_from_related(self, related_instance):
         if isinstance(related_instance, Author):
             return related_instance.post_set.all()
-

@@ -23,7 +23,7 @@ class Post(models.Model):
     title = models.CharField(_("Title"), max_length=200)
     authors = models.ForeignKey(Author, verbose_name=_("Authors"), on_delete=models.CASCADE)
     publishing_date = models.DateField(_("Publishing date"), blank=True, null=True)
-    isbn = models.CharField(_("ISBN"), blank=True, max_length=20)
+    # isbn = models.CharField(_("ISBN"), blank=True, max_length=20)
 
     class Meta:
         verbose_name = _("Book")
@@ -32,3 +32,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+

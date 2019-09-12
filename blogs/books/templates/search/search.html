@@ -1,0 +1,12 @@
+<form method="get">
+    List...
+    <input id='q' name='q' type='text' placeholder="your search...">
+
+</form>
+
+{% for item in posts %}
+    {{item.id}}
+    {{item.title}}
+
+    <br>
+{% endfor %}
