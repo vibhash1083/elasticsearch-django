@@ -1,5 +1,5 @@
   * Clone the project with ```git clone https://github.com/vibhash1083/elasticsearch-django.git```
-
+  * Create a virtual environment and run ```pip install -r requirements.txt``` to install all the dependencies.
   * Install ElasticSearch 7.0.0:
 ```
 docker pull docker.elastic.co/elasticsearch/elasticsearch:7.0.0
